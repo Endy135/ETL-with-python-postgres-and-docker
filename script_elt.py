@@ -42,7 +42,7 @@ destination_config = {
         'host' : 'destination_postgres'
     }
 
-dump_command = [
+commande_sauvegarde = [
     'pg_dump', 
     '-h', source_config['host'],
     '-u', source_config['user'],
@@ -53,8 +53,20 @@ dump_command = [
 
 subprocess_env = dict(PGPASSWORD = source_config['password'])
 
-subprocess.run(dump_command, env = subprocess_envn check=True)
+subprocess.run(commande_sauvegarde, env = subprocess_env, check=True)
 
-load_command = [
-    
+commande_chargement = [
+    'pg_dump', 
+    '-h', destination_config['host'],
+    '-u', destination_config['user'],
+    '-d', destination_config['dbname'],
+    '-a', '-f', 'data_dump.sql',
+    '-w'
 ]
+
+subprocess_env = dict(PGPASSWORD = destination_config['password'])
+
+subprocess.run(commande_chargement, env=subprocess_env,check=True)
+
+
+print("Processus d'ELT terminé")
