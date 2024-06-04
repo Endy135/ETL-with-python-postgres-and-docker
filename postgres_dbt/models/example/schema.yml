@@ -1,0 +1,98 @@
+
+version: 2
+
+models:
+  - name: films
+    description: "contient les infos sur les acteurs"
+    columns:
+      - name: film_id
+        description: " clé primaire de la table"
+        tests:
+          - unique
+          - not_null
+      - name: title
+        description: " titre du film"
+        tests:
+          - not_null
+      - name: release_date
+        description: " date de diffusion du film"
+        tests:
+          - not_null
+      - name: price
+        description: " prix du billet"
+        tests:
+          - not_null
+      - name: rating
+        description: "code film"
+        tests:
+          - not_null
+      - name: user_rating
+        description: "score moyen donné au film "
+        tests:
+          - not_null
+
+
+  - name: actors
+    description: "contient les infos sur les acteurs"
+    columns:
+      - name: actor_id
+        description: "Clé primaire de cette table"
+        tests:
+          - unique
+          - not_null
+
+
+  - name: film_actors
+    description: "infos sur les films des acteurs"
+    columns:
+      - name: film_id
+        description: "cle secondaire identifiant un film"
+        tests:
+          - not_null
+      - name: actor_id
+        description: "cle secondaire identifiant un acteur"
+        tests:
+          - not_null
+
+
+  
+  - name: film_ratings
+    description: "Ce modele aggrege les données de film pour calculer le temp moyen de "
+    columns:
+      - name: film_id
+        description: "l'unique identifiant du film"
+        tests:
+          - not_null
+      - name: title
+        description: "titre du film"
+        tests:
+          - not_null
+      - name: release_date
+        description: " date de diffusion du film"
+        tests:
+          - not_null
+      - name: price
+        description: " prix du billet"
+        tests:
+          - not_null
+      - name: rating
+        description: "code film"
+        tests:
+          - not_null
+      - name: user_rating
+        description: "score moyen donné au film "
+        tests:
+          - not_null
+      - name: nbre_acteur
+        description: "nombre d'acteur du film "
+        tests:
+          - not_null
+      - name: temp_moy
+        description: "temp moyen de jeux(d'apparition) dun acteur"
+        tests:
+          - not_null
+
+
+
+
+    

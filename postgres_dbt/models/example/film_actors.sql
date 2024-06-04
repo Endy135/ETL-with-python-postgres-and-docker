@@ -1,0 +1,1 @@
+SELECT * FROM {{source('movie', 'film_actors')}}

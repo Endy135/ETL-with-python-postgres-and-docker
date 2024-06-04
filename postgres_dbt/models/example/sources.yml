@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: movie
+    description: "Jeu de données de la BD postgresql"
+    database: movie
+    schema: public
+    tables:
+        - name: films
+          description: "liste des films"
+        - name: actors
+          description: "liste des acteurs"
+        - name: film_actors
+          description: "mapping entre les tables films et actors"

@@ -140,7 +140,7 @@
 );
 
 --👉️
-		INSERT INTO actors (actor_name) VALUES
+	INSERT INTO actors (actor_name) VALUES
 ('Leonardo DiCaprio'),  -- Associated with Inception
 ('Tim Robbins'),        -- Associated with The Shawshank Redemption
 ('Marlon Brando'),      -- Associated with The Godfather
